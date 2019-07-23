@@ -1,0 +1,489 @@
+import time
+# --------------------------- VARS ---------------------------
+
+skeleton_alive = True
+dragon_alive = True
+sword = False
+holy_sword = False
+#Introduction
+print ("""
+██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗     █████╗ ██╗     ██████╗ ██╗  ██╗ █████╗ 
+██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝    ██╔══██╗██║     ██╔══██╗██║  ██║██╔══██╗
+██████╔╝██████╔╝██║   ██║     ██║█████╗  ██║        ██║       ███████║██║     ██████╔╝███████║███████║
+██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝  ██║        ██║       ██╔══██║██║     ██╔═══╝ ██╔══██║██╔══██║
+██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║       ██║  ██║███████╗██║     ██║  ██║██║  ██║
+╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝       ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝                                      
+
+              _
+             |.|
+             |.|
+             |.|
+             |.|
+             |.|   ,'`.
+             |.|  ;\  /:
+             |.| :  \/  :
+             |.|<.<_/\_>,>
+             |.| \`.::,'/
+             |.|,'.'||'/.
+          ,-'|.|.`.____,'`.
+        ,' .`|.| `.____,;/ .
+       / =-.`|.| . ___|,'  |
+      /_   :)|.|.`.___:,:,'|.
+     (  `-:;\|.|.`.)  |.`-':,.
+     /.   /  ;.:--'   |    | ,`.
+    / _>-'._.'-'.     |.   |' / )._
+   :.'    ((.__;/     |    |._ /__ `.___
+   `.>._.-' |)=(      |.   ;  '--.._,`-.`.
+            ',--'`-._ | _,:          `='`'
+            /_`-. `..`:'/_\|
+           :__``--..\\_/_..:
+           |  ``--..,:;\__.|
+           |`--..__/:;  :__|
+           `._____:-;_,':__;
+            |:'    /::'  `|
+            |,---.:  :,-'`;
+            : __  )  ;__,':
+            \' ,`:   :__  :
+            :. |,:   :  `./
+            | `| |   |   |:
+            |  | |   |   ||
+            |  | |   |   ||
+            |  | |   '   ||
+            |  : |    \  ||
+            |  ; :    :  ||
+            | / ,;    |\,'`.
+            ;-.(,'    '-._,-`.
+          ,'-.//          `--'
+          `---'
+ 
+""")
+def Introduction():
+  print ("Welcome to my first text based game on python")
+  time.sleep
+  print ("I am new to cooding so feel free to give  criticism")
+  time.sleep(0.8)
+  print ("Without further ado here it is")
+  time.sleep(0.8)
+#Title Screen
+def v_title():
+  print(""" 
+ ________  _________  ________  ________  _________   
+|\   ____\|\___   ___\\   __  \|\   __  \|\___   ___\ 
+\ \  \___|\|___ \  \_\ \  \|\  \ \  \|\  \|___ \  \_| 
+ \ \_____  \   \ \  \ \ \   __  \ \   _  _\   \ \  \  
+  \|____|\  \   \ \  \ \ \  \ \  \ \  \\  \|   \ \  \ 
+    ____\_\  \   \ \__\ \ \__\ \__\ \__\\ _\    \ \__|
+   |\_________\   \|__|  \|__|\|__|\|__|\|__|    \|__|
+   \|_________|   
+
+ 1. Start Game
+ 2. Quit Game    
+ """)
+
+  titlechoice = int(input(" "))
+  if (titlechoice == 1):
+      stage_1()
+  elif (titlechoice == 2):
+      exit()
+#Stage_1--------------------------------------------------------------------------------------------
+def stage_1():
+    print ("---------------------------------------------------------------------------------------")
+    time.sleep(0.8)
+    print ("You awake to a dimly lit room as you try your best to stabilize yourself.")
+    print ("As you look around you notice there is a door.")
+    print ("What do you do?")
+    print(" ")
+    print("1. Try pulling on the doorknob in hopes it will open")
+    print("2. Search around the room")
+    print("3. Wait")
+
+    choice = input("> ");
+
+    if "1" in choice:
+        stage_2()
+    elif "2" in choice:
+      stage_2A()
+    elif "3" in choice:
+        game_over("""-----------------------------------------------------------------------------
+        You wait for knows for how long and without water nor food, you
+       die some days later.
+
+██╗   ██╗ ██████╗ ██╗   ██╗    ██████╗ ██╗███████╗██████╗ 
+╚██╗ ██╔╝██╔═══██╗██║   ██║    ██╔══██╗██║██╔════╝██╔══██╗
+ ╚████╔╝ ██║   ██║██║   ██║    ██║  ██║██║█████╗  ██║  ██║
+  ╚██╔╝  ██║   ██║██║   ██║    ██║  ██║██║██╔══╝  ██║  ██║
+   ██║   ╚██████╔╝╚██████╔╝    ██████╔╝██║███████╗██████╔╝
+   ╚═╝    ╚═════╝  ╚═════╝     ╚═════╝ ╚═╝╚══════╝╚═════╝
+
+      """)
+    else:
+        stage_1()
+#Stage_2-------------------------------------------------------------------------------------------
+def stage_2():
+    time.sleep(1.5)
+    print ("-------------------------------------------------------------------------------------")
+    print ("The door breaks down easily in contrast of its sturdy appearance.")
+    print ("As your eyes adjusts to the blinding light you notice something.")
+    print ("Two passages opened up suddenly.")
+    print ("1. 1st passage")
+    print ("2. 2nd passage")
+    print ("What do you do?")
+
+    choice = input("> ");
+
+    if "1" in choice:
+      game_over("""-------------------------------------------------------------------------------
+     As you walk, the light gets brighter and brighter, until you can't see anything.
+     Suddenly you can no longer feel the floor under your
+     feet and, as you fall in a pit of flames, you understand
+     where the light came from. You die screaming in pain..
+
+██╗   ██╗ ██████╗ ██╗   ██╗    ██████╗ ██╗███████╗██████╗ 
+╚██╗ ██╔╝██╔═══██╗██║   ██║    ██╔══██╗██║██╔════╝██╔══██╗
+ ╚████╔╝ ██║   ██║██║   ██║    ██║  ██║██║█████╗  ██║  ██║
+  ╚██╔╝  ██║   ██║██║   ██║    ██║  ██║██║██╔══╝  ██║  ██║
+   ██║   ╚██████╔╝╚██████╔╝    ██████╔╝██║███████╗██████╔╝
+   ╚═╝    ╚═════╝  ╚═════╝     ╚═════╝ ╚═╝╚══════╝╚═════╝""")
+    elif "2" in choice:
+      stage_3()
+    else:
+      stage_2
+
+def stage_2A():
+    time.sleep(1.5)
+    print ("-------------------------------------------------------------------------------------")
+    print ("You thank the gods that the key was just behind your bum")
+    print ("The lock drops on the ground as the key is turned")
+    print ("As your eyes adjusts to the blinding light you notice something.")
+    print ("Two passages opened up suddenly.")
+    print ("1. 1st passage.")
+    print ("2. 2nd passage")
+    print ("What do you do?")
+
+    choice1 = input("> ");
+
+    if "1" in choice1:
+      game_over("""-------------------------------------------------------------------------------
+     As you walk, the light gets brighter and brighter, until you can't see anything.
+     Suddenly you can no longer feel the floor under your
+     feet and, as you fall in a pit of flames, you understand
+     where the light came from. You die screaming in pain.
+██╗   ██╗ ██████╗ ██╗   ██╗    ██████╗ ██╗███████╗██████╗ 
+╚██╗ ██╔╝██╔═══██╗██║   ██║    ██╔══██╗██║██╔════╝██╔══██╗
+ ╚████╔╝ ██║   ██║██║   ██║    ██║  ██║██║█████╗  ██║  ██║
+  ╚██╔╝  ██║   ██║██║   ██║    ██║  ██║██║██╔══╝  ██║  ██║
+   ██║   ╚██████╔╝╚██████╔╝    ██████╔╝██║███████╗██████╔╝
+   ╚═╝    ╚═════╝  ╚═════╝     ╚═════╝ ╚═╝╚══════╝╚═════╝""")
+    elif "2" in choice1:
+      stage_3()
+    else:
+      stage_2A
+#Stage_3--------------------------------------------------------------------------------------------    
+def stage_3():
+  global sword
+  global holy_sword
+  time.sleep(1.5)
+  print ("---------------------------------------------------------------------------------------")
+  print ("As you move through the passage, you notice a small glint")
+  print ("At the corner of your eye you see a head of a skeleton with a sword ")
+  print ("""
+                          ,--.
+                          {    }
+                          K,   }
+                         /  `Y`
+                    _   /   /
+                   {_'-K.__/
+                     `/-.__L._
+                     /  ' /`\_}
+                    /  ' /     
+            ____   /  ' /
+     ,-'~~~~    ~~/  ' /_
+   ,'             ``~~~%%',
+  (                     %  Y
+ {                      %% I
+{      -                 %  `.
+|       ',                %  )
+|        |   ,..__      __. Y
+|    .,_./  Y ' / ^Y   J   )|
+\           |' /   |   |   ||
+ \          L_/    . _ (_,.'(
+  \,   ,      ^^""' / |      )
+    \_  \          /,L]     /
+      '-_`-,       ` `   ./`
+         `-(_            )
+             ^^\..___,.--`
+  """)
+  print ("What do you do?")
+  print ("1. Pull out the sword ")
+  print ("2. Examine the sword more closely")
+  print ("3. Ignore it completely")
+
+  choice2 = input("> ");
+
+  if "1" in choice2:
+    print ("You use all of your strenght to pull put the sword")
+    print ("""
+           __
+          |//|
+          |//|
+          |//|
+          |//|
+       ___|//|___
+      |<>______<>|
+     // / |/\| \ \\
+     //"  //\\  "\\
+         //  \\
+        |/)dd(\|
+          )  (
+          )  (
+          )  (
+          )  (
+          )  (
+          )  (
+          )  (
+          )  (
+          )  (
+          )  (
+          )  (
+          )  (
+          )  (
+          )  (
+          )  (
+          (  )
+           \/ 
+    """)
+    print ("The sword gives out an ancient vibes as you caress it")
+    print ("Suddenly an opening in the wall is opened")
+    print ("You enter the hall with conviction")
+    sword = True
+    stage_skeleton()
+  elif "2" in choice2:
+    print ("A wise man once said you only live thus you carefully examine it")
+    print ("You notice an inscription and some ancient text")
+    print ("Instead of pulling it out you began to chant the ancient words as if you were born to do so")
+    print ("A bright light fills the room blinding you")
+    print ("The true form of the holy sword is revealed!")
+    print ("""
+                                                         )         
+                                                        (            
+                                                      '    }      
+                                                    (    '      
+                                                   '      (   
+                                                    )  |    ) 
+                                                  '   /|\    `
+                                                 )   / | \  ` )   
+                                                {    | | |  {   
+                                               }     | | |  .
+                                                '    | | |    )
+                                               (    /| | |\    .
+                                                .  / | | | \  (
+                                              }    \ \ | / /  .        
+                                               (    \ `-' /    }
+                                               '    / ,-. \    ' 
+                                                }  / / | \ \  }
+                                               '   \ | | | /   } 
+                                                (   \| | |/  (
+                                                  )  | | |  )
+                                                  .  | | |  '
+                                                     J | L
+                                               :|    J_|_L    |:
+                                               | |___| o |___| |
+                                                \_____ _ _____/
+                                                      |-|
+                                                      |-|
+                                                      |-|
+                                                     ,'-'.
+                                                     '---'
+    """)
+    time.sleep(1)
+    print ("A gate is revealed behind the opening")
+    print ("You breathe a sigh of relief as you see the remains of a skeleton infront of the gate dead")
+    print ("While griping the holy sword with more conviction you slowly move infront of the gate")
+    holy_sword = True
+    stage_dragon()
+  elif "3" in choice2:
+    time.sleep(1.5)
+    game_over("""--------------------------------------------------------------------------------------
+    You begin to walk into the opening feeling weary that you did not even try to take the sword.
+    A skeleton appears out of nowhere and starts hacking you. 
+    You lie down on the floor covered by your own blood regreting every second of your stupidity.
+    A fools death is your final thought 
+██╗   ██╗ ██████╗ ██╗   ██╗    ██████╗ ██╗███████╗██████╗ 
+╚██╗ ██╔╝██╔═══██╗██║   ██║    ██╔══██╗██║██╔════╝██╔══██╗
+ ╚████╔╝ ██║   ██║██║   ██║    ██║  ██║██║█████╗  ██║  ██║
+  ╚██╔╝  ██║   ██║██║   ██║    ██║  ██║██║██╔══╝  ██║  ██║
+   ██║   ╚██████╔╝╚██████╔╝    ██████╔╝██║███████╗██████╔╝
+   ╚═╝    ╚═════╝  ╚═════╝     ╚═════╝ ╚═╝╚══════╝╚═════╝
+    """)
+  else:
+    stage_3()
+#Stage_Skeleton
+def stage_skeleton():
+  global skeleton_alive
+  time.sleep(1.5)
+  print("The opening reveals a skeleton guarding a gigantic door")
+  print ("""
+                                _.--""-._
+  .                         ."         ".
+ / \    ,^.         /(     Y             |      )|
+/   `---. |--'\    (  \__..'--   -   -- -'""-.-'  )
+|        :|    `>   '.     l_..-------.._l      .'
+|      __l;__ .'      "-.__.||_.-'v'-._||`"----"
+ \  .-' | |  `              l._       _.'
+  \/    | |                   l`^^'^^'j
+        | |                _   \_____/     _
+        j |               l `--__)-'(__.--' |
+        | |               | /`---``-----'"1 |  ,-----.
+        | |               )/  `--' '---'   \'-'  ___  `-.
+        | |              //  `-'  '`----'  /  ,-'   I`.  |
+      _ L |_            //  `-.-.'`-----' /  /  |   |  `. |
+     '._' / \         _/(   `/   )- ---' ;  /__.J   L.__.\ :
+      `._;/7(-.......'  /        ) (     |  |            | |
+      `._;l _'--------_/        )-'/     :  |___.    _._./ ;
+        | |                 .__ )-'\  __  \  \  I   1   / /
+        `-'                /   `-\-(-'   \ \  `.|   | ,' /
+                           \__  `-'    __/  `-. `---'',-'
+                              )-._.-- (        `-----'
+                             )(  l\ o ('..-.
+                       _..--' _'-' '--'.-. |
+                __,,-'' _,,-''            \ |
+               f'. _,,-'                   \ |
+              ()--  |                       \ |
+                \.  |                       /  |
+                  \ \                      |._  |
+                   \ \                     |  ()|
+                    \ \                     \  /
+                     ) `-.                   | |
+                    // .__)                  | |
+                 _.//7'                      | |
+               '---'                         j_| `
+                                            (| |
+                                             |  |
+                                             |lllj
+                                             |||||
+  """)
+  print ("what do you do?")
+  print ("1. Attack with conviction")
+  print ("2. Run like a coward")
+
+  choice3 = input("> ");
+
+  if "1" in choice3:
+    if sword:
+      print ("With your life on the line you swing the sword with more and more conviction each time")
+      time.sleep(0.8)
+      skeleton_alive = False
+      print ("You pant as you finally defeated the skeleton knight")
+      time.sleep(0.8)
+      print ("The gate begins to open slowly but you can't help the feeling of dread in the pit of your stomach")
+      print ("With each step feeling as heavy as the last you walk into the unknown")
+      skeleton_alive = False
+      stage_dragon()
+   
+  elif "2" in choice3:
+     game_over(""""-----------------------------------------------------------------------------------
+     The sight of the undead scares the living shit out of you as you piss your pants uncontrolably.
+     You have lost all sense of dignity and conviction and retreat with your tails between your legs
+     Of course the skeleton catches up to you.
+     You beg the skeleton as your snot comes out of your nose.
+     The skeleton coldly decapitates you like cutting weed
+██╗   ██╗ ██████╗ ██╗   ██╗    ██████╗ ██╗███████╗██████╗ 
+╚██╗ ██╔╝██╔═══██╗██║   ██║    ██╔══██╗██║██╔════╝██╔══██╗
+ ╚████╔╝ ██║   ██║██║   ██║    ██║  ██║██║█████╗  ██║  ██║
+  ╚██╔╝  ██║   ██║██║   ██║    ██║  ██║██║██╔══╝  ██║  ██║
+   ██║   ╚██████╔╝╚██████╔╝    ██████╔╝██║███████╗██████╔╝
+   ╚═╝    ╚═════╝  ╚═════╝     ╚═════╝ ╚═╝╚══════╝╚═════╝    
+     """)
+  else:
+    stage_skeleton()
+#Stage_Dragon          
+def stage_dragon():
+  global dragon_alive
+  time.sleep (2.5)
+  print ("--------------------------------------------------------------------------------------------")
+  print("""
+  
+                                   (`-..________....---''  ____..._.-`
+                                  \\`._______.._,.---'''     ,'
+                                  ; )`.      __..-'`-.      /
+                                 / /     _.-' _,.;;._ `-._,'
+                                / /   ,-' _.-'  //   ``--._``._
+                              ,','_.-' ,-' _.- (( =-    -. `-._`-._____
+                            ,;.''__..-'   _..--.\\.--'````--.._``-.`-._`.
+             _          |\,' .-''        ```-'`---'`-...__,._  ``-.`-.`-.`.
+  _     _.-,'(__)\__)\-'' `     ___  .          `     \      `--._
+,',)---' /|)          `     `      ``-.   `     /     /     `     `-.
+\_____--.  '`  `               __..-.  \     . (   < _...-----..._   `.
+ \_,--..__. \\ .-`.\----'';``,..-.__ \  \      ,`_. `.,-'`--'`---''`.  )
+           `.\`.\  `_.-..' ,'   _,-..'  /..,-''(, ,' ; ( _______`___..'__
+                   ((,(,__(    ((,(,__,'  ``'-- `'`.(\  `.,..______   
+                                                      ``--------..._``--.__
+  """)
+  print ("The sight of the beast fills you with awe and dread")
+  time.sleep(2)
+  print ("You began to tighten your grip for the inevitable battle")
+  time.sleep(1)
+
+  if sword:
+    game_over("""-------------------------------------------------------------------------------------
+   You began to charge at the gigantic reptile but is quickly burn to a cripst
+██╗   ██╗ ██████╗ ██╗   ██╗    ██████╗ ██╗███████╗██████╗ 
+╚██╗ ██╔╝██╔═══██╗██║   ██║    ██╔══██╗██║██╔════╝██╔══██╗
+ ╚████╔╝ ██║   ██║██║   ██║    ██║  ██║██║█████╗  ██║  ██║
+  ╚██╔╝  ██║   ██║██║   ██║    ██║  ██║██║██╔══╝  ██║  ██║
+   ██║   ╚██████╔╝╚██████╔╝    ██████╔╝██║███████╗██████╔╝
+   ╚═╝    ╚═════╝  ╚═════╝     ╚═════╝ ╚═╝╚══════╝╚═════
+    """)
+  elif holy_sword:
+    print ("----------------------------------------------------------------------------------------")
+    print ("The light from your holy begins to shine like the sun")
+    print ("You charage head on with all the conviction in the world")
+    print ("The giant lizard roars and breaths fire but you cut the flame with your holy sword")
+    time.sleep(0.8)
+    print ("You are filled with determination")
+    print ("With the guiding power from the sword you jump on top of the dragon head")
+    time.sleep(0.8)
+    print ("And slice it completely off")
+    dragon_alive = False
+    time.sleep(3)
+    print ("From the headless dragon corpse a light begins to envelope the room")
+    print ("You awake from your desk")
+    print ("You wonder if that was all a dream")
+    print ("But then you look at your PC's screen that is blinking continously")
+    game_over("""
+██╗   ██╗ ██████╗ ██╗   ██╗    ██╗    ██╗██╗███╗   ██╗
+╚██╗ ██╔╝██╔═══██╗██║   ██║    ██║    ██║██║████╗  ██║
+ ╚████╔╝ ██║   ██║██║   ██║    ██║ █╗ ██║██║██╔██╗ ██║
+  ╚██╔╝  ██║   ██║██║   ██║    ██║███╗██║██║██║╚██╗██║
+   ██║   ╚██████╔╝╚██████╔╝    ╚███╔███╔╝██║██║ ╚████║
+   ╚═╝    ╚═════╝  ╚═════╝      ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝                                                   
+   """)
+  else:
+    stage_dragon
+#Game_Over
+def game_over(s):
+
+    global skeleton_alive
+    global dragon_alive
+    global sword
+    global holy_sword
+
+    skeleton_alive = True
+    dragon_alive = True
+    sword = False
+    holy_sword = False
+
+    print (s)
+    print ("Do you want to play again? (y / n)")
+
+    choice = ""
+    while choice != "y" and choice != "n":
+        choice = input("> ")
+        if choice == ("y"):
+
+            v_title()
+        elif choice == ("n"):
+            exit(0)
+                
+Introduction()
+v_title()
